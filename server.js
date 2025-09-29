@@ -4,7 +4,6 @@ const userController = require('./controllers/userController')
 
 
 const app = express();
-const url = 'mongodb+srv://reshab:reshab1109@nmiet.wgwfsza.mongodb.net/NMIET?retryWrites=true&w=majority&appName=NMIET'
 
 // Mongodb check 5 parameters to connect any external resources
 //Regex
