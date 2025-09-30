@@ -1,19 +1,24 @@
 const express = require("express");
 const mongoose = require('mongoose');
-const userController = require('./controllers/userController')
+const dotenv = require('dotenv')
 
 
 const app = express();
 
-// Mongodb check 5 parameters to connect any external resources
-//Regex
+dotenv.configDotenv()
+
+
+const userController = require('./controllers/userController')
 
 
 
+const url = process.env.MONGODB_URL
 // middlewares
 
 app.use(express.json());
 
+// Mongodb check 5 parameters to connect any external resources
+//Regex
 mongoose.connect(url)
 .then(() => console.log(`Db Connected`))
 .catch((err) => console.log(`Db Error`, err))
