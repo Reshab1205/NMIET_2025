@@ -52,6 +52,9 @@ app.post("/update/:id", userController.updateUser);
 app.post("/delete/:id", userController.hardDelete);
 
 
+app.get('/users', userController.getUsers)
+
+
 
 app.listen(8000, () => {
   console.log(`Server started on 8000`);

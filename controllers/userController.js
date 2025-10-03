@@ -104,4 +104,17 @@ const hardDelete = async (req, res) => {
   }
 };
 
-module.exports = { register, login, updateUser, hardDelete };
+
+const getUsers = async (req,res) => {
+    try {
+        const getUsers = await user.find()
+        return res.status(200).json({message: "List of users", data:getUsers})
+
+    } catch (err) {
+       return res
+      .status(500)
+      .json({ message: "Internal Server Error", error: err }); 
+    }
+}
+
+module.exports = { register, login, updateUser, hardDelete,getUsers };
