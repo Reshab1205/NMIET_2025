@@ -48,6 +48,10 @@ app.get("/contact", (req, res) => {
 
 app.post("/register", userController.register);
 app.post("/login", userController.login);
+app.post("/update/:id", userController.updateUser);
+app.post("/delete/:id", userController.hardDelete);
+
+
 
 app.listen(8000, () => {
   console.log(`Server started on 8000`);
