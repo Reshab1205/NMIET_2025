@@ -1,5 +1,7 @@
 const express = require("express");
 const user = require("../models/userSchema");
+const auth = require('../middlewares/authMiddleware')
+
 
 const register = async (req, res) => {
   try {
@@ -56,9 +58,10 @@ const login = async (req, res) => {
         .status(401)
         .json({ error: "Unauthorized", message: "Invalid Credentials" });
     }
+    const token = auth.createToken(checkEmail._id, checkEmail.email)
     return res
       .status(200)
-      .json({ message: "Logged In Sucessfully", data: checkEmail._id });
+      .json({ message: "Logged In Sucessfully", data: checkEmail, token:token });
   } catch (err) {
     return res
       .status(500)

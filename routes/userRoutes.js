@@ -12,3 +12,8 @@ router.post("/delete/:id", userController.hardDelete);
 router.get('/users', userController.getUsers)
 
 module.exports = router
+
+
+// Private 
+// Public
+// Protected
